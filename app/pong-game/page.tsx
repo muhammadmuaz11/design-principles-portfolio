@@ -5,8 +5,11 @@ import { Badge } from "@/components/ui/badge";
 export default function PongGame() {
   const technologies = [
     "Python",
-    "Turtle Module",
-    "Object-Oriented Programming",
+    "Turtle Graphics",
+    "Winsound",
+    "AABB Collision Detection",
+    "OOP",
+    "Game Loop Architecture",
   ];
 
   return (
@@ -52,8 +55,10 @@ export default function PongGame() {
 
           {/* Short Description */}
           <p className='text-xl text-slate-600 dark:text-slate-400 mb-6 leading-relaxed'>
-            A classic Pong game implementation featuring smooth gameplay,
-            responsive controls, and an AI opponent.
+            A redesigned version of the classic Atari Pong (1972) built in
+            Python — featuring a custom dynamic difficulty mechanic where each
+            conceded goal shrinks the losing player&apos;s paddle, creating an
+            intense and self-resolving competitive experience.
           </p>
 
           {/* Technologies Used */}
@@ -75,61 +80,205 @@ export default function PongGame() {
           </div>
         </div>
 
-        {/* Long Description / Detailed Explanation */}
-        <div className='bg-white dark:bg-slate-800 rounded-lg p-8 shadow-lg border border-slate-200 dark:border-slate-700'>
-          <h2 className='text-2xl font-bold text-slate-900 dark:text-white mb-6'>
-            About This Project
-          </h2>
-
-          <div className='space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed'>
-            <p>
-              This Pong game is a recreation of the classic arcade game,
-              developed using Python and the Pygame library. The project
-              demonstrates fundamental game development concepts including game
-              loops, collision detection, and AI implementation.
+        {/* Highlight Cards */}
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12'>
+          <div className='bg-white dark:bg-slate-800 rounded-lg p-5 shadow border border-slate-200 dark:border-slate-700 text-center'>
+            <p className='text-3xl font-bold text-blue-600 dark:text-blue-400'>
+              10
             </p>
-
-            <h3 className='text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3'>
-              Key Features
-            </h3>
-            <ul className='list-disc list-inside space-y-2 ml-4'>
-              <li>Smooth 60 FPS gameplay with responsive controls</li>
-              <li>AI opponent with adjustable difficulty levels</li>
-              <li>Score tracking and game state management</li>
-              <li>Sound effects and visual feedback</li>
-              <li>Clean, object-oriented code architecture</li>
-            </ul>
-
-            <h3 className='text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3'>
-              Technical Implementation
-            </h3>
-            <p>
-              The game utilizes Pygame's event handling system for player input
-              and implements custom collision detection algorithms. The AI
-              opponent uses a prediction-based movement system that calculates
-              the ball's trajectory to determine optimal paddle positioning.
+            <p className='text-sm text-slate-500 dark:text-slate-400 mt-1'>
+              Points to Win
             </p>
-
-            <p>
-              Object-oriented programming principles were applied throughout the
-              project, with separate classes for the paddles, ball, and game
-              manager. This modular approach makes the code maintainable and
-              easily extensible for future features.
+          </div>
+          <div className='bg-white dark:bg-slate-800 rounded-lg p-5 shadow border border-slate-200 dark:border-slate-700 text-center'>
+            <p className='text-3xl font-bold text-blue-600 dark:text-blue-400'>
+              2
             </p>
+            <p className='text-sm text-slate-500 dark:text-slate-400 mt-1'>
+              Win Conditions
+            </p>
+          </div>
+          <div className='bg-white dark:bg-slate-800 rounded-lg p-5 shadow border border-slate-200 dark:border-slate-700 text-center'>
+            <p className='text-3xl font-bold text-blue-600 dark:text-blue-400'>
+              0
+            </p>
+            <p className='text-sm text-slate-500 dark:text-slate-400 mt-1'>
+              External Libraries
+            </p>
+          </div>
+        </div>
 
-            <h3 className='text-xl font-semibold text-slate-900 dark:text-white mt-6 mb-3'>
-              Learning Outcomes
-            </h3>
-            <p>
-              Through this project, I gained hands-on experience with game
-              development fundamentals, improved my understanding of Python's
-              class-based programming, and learned how to optimize code for
-              performance in real-time applications.
+        {/* Main Detail Card */}
+        <div className='bg-white dark:bg-slate-800 rounded-lg p-8 shadow-lg border border-slate-200 dark:border-slate-700 space-y-10'>
+          {/* What I Built */}
+          <div>
+            <h2 className='text-2xl font-bold text-slate-900 dark:text-white mb-4'>
+              What I Built
+            </h2>
+            <p className='text-slate-600 dark:text-slate-400 leading-relaxed'>
+              I built a fully playable two-player Pong game from scratch using
+              Python&apos;s Turtle graphics module — no game engine, no external
+              libraries. The game runs on a custom game loop, handles real-time
+              keyboard input for two players simultaneously, detects collisions
+              using AABB logic, plays audio feedback via the Winsound library,
+              and tracks live scores on screen.
+            </p>
+            <p className='text-slate-600 dark:text-slate-400 leading-relaxed mt-3'>
+              On top of the base game, I designed and implemented a custom
+              mechanic: every time a player concedes a goal, their paddle
+              permanently shrinks by one unit. This keeps growing the pressure
+              on the losing player and guarantees the game always reaches a
+              definitive end — no draws, no stalemates.
             </p>
           </div>
 
-          {/* Optional: Add links */}
-          <div className='mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex gap-4'>
+          {/* The Problem I Solved */}
+          <div>
+            <h2 className='text-2xl font-bold text-slate-900 dark:text-white mb-4'>
+              The Problem I Solved
+            </h2>
+            <p className='text-slate-600 dark:text-slate-400 leading-relaxed'>
+              The original Pong (Atari, 1972) has a well-known flaw: evenly
+              matched players can rally indefinitely with no natural resolution.
+              I identified this as the core design problem and engineered a
+              solution — a{" "}
+              <strong className='text-slate-800 dark:text-slate-200'>
+                positive feedback loop
+              </strong>{" "}
+              that uses a diminishing resource (paddle size) to force a
+              conclusive outcome. The longer you lose, the harder it gets to
+              defend — adding strategic tension to every single point.
+            </p>
+          </div>
+
+          {/* How It Works */}
+          <div>
+            <h2 className='text-2xl font-bold text-slate-900 dark:text-white mb-4'>
+              How It Works
+            </h2>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+              <div className='bg-slate-50 dark:bg-slate-700/50 rounded-lg p-5'>
+                <h3 className='font-semibold text-slate-900 dark:text-white mb-2'>
+                  Game Physics
+                </h3>
+                <p className='text-sm text-slate-600 dark:text-slate-400 leading-relaxed'>
+                  Collision detection is handled with Axis-Aligned Bounding Box
+                  (AABB) logic. Wall hits reverse the ball&apos;s vertical
+                  vector (dy); paddle hits reverse the horizontal vector (dx).
+                  No physics engine required.
+                </p>
+              </div>
+              <div className='bg-slate-50 dark:bg-slate-700/50 rounded-lg p-5'>
+                <h3 className='font-semibold text-slate-900 dark:text-white mb-2'>
+                  Dynamic Paddle Sizing
+                </h3>
+                <p className='text-sm text-slate-600 dark:text-slate-400 leading-relaxed'>
+                  Each paddle starts at stretch-width 8. On every goal, the
+                  conceding player&apos;s size variable decrements by 1. A
+                  conditional guard prevents it from going below 1 to avoid a
+                  runtime crash.
+                </p>
+              </div>
+              <div className='bg-slate-50 dark:bg-slate-700/50 rounded-lg p-5'>
+                <h3 className='font-semibold text-slate-900 dark:text-white mb-2'>
+                  Win Conditions
+                </h3>
+                <p className='text-sm text-slate-600 dark:text-slate-400 leading-relaxed'>
+                  A player wins by either reaching{" "}
+                  <strong className='text-slate-700 dark:text-slate-200'>
+                    10 points
+                  </strong>{" "}
+                  or triggering{" "}
+                  <strong className='text-slate-700 dark:text-slate-200'>
+                    Sudden Death
+                  </strong>{" "}
+                  — when the opponent&apos;s paddle reaches size 0, making
+                  defense impossible.
+                </p>
+              </div>
+              <div className='bg-slate-50 dark:bg-slate-700/50 rounded-lg p-5'>
+                <h3 className='font-semibold text-slate-900 dark:text-white mb-2'>
+                  Controls
+                </h3>
+                <p className='text-sm text-slate-600 dark:text-slate-400 leading-relaxed'>
+                  Player A uses{" "}
+                  <strong className='text-slate-700 dark:text-slate-200'>
+                    W / S
+                  </strong>{" "}
+                  keys. Player B uses{" "}
+                  <strong className='text-slate-700 dark:text-slate-200'>
+                    ↑ / ↓
+                  </strong>{" "}
+                  arrow keys. Both are bound via screen.listen() with boundary
+                  checks to keep paddles on-screen.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* What I Learned */}
+          <div>
+            <h2 className='text-2xl font-bold text-slate-900 dark:text-white mb-4'>
+              What I Learned
+            </h2>
+            <ul className='space-y-3 text-slate-600 dark:text-slate-400'>
+              <li className='flex items-start gap-3'>
+                <span className='mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0'></span>
+                <span>
+                  <strong className='text-slate-800 dark:text-slate-200'>
+                    Game loop architecture:
+                  </strong>{" "}
+                  How to structure a real-time loop that handles input, updates
+                  state, and redraws the screen efficiently on every frame.
+                </span>
+              </li>
+              <li className='flex items-start gap-3'>
+                <span className='mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0'></span>
+                <span>
+                  <strong className='text-slate-800 dark:text-slate-200'>
+                    Collision detection from scratch:
+                  </strong>{" "}
+                  Implementing AABB logic without relying on a physics engine
+                  gave me a deeper understanding of how 2D collision math
+                  actually works.
+                </span>
+              </li>
+              <li className='flex items-start gap-3'>
+                <span className='mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0'></span>
+                <span>
+                  <strong className='text-slate-800 dark:text-slate-200'>
+                    State-driven object properties:
+                  </strong>{" "}
+                  Dynamically modifying object attributes (shapesize) at runtime
+                  using conditional logic and state variables.
+                </span>
+              </li>
+              <li className='flex items-start gap-3'>
+                <span className='mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0'></span>
+                <span>
+                  <strong className='text-slate-800 dark:text-slate-200'>
+                    Game design thinking:
+                  </strong>{" "}
+                  Identifying a real flaw in an existing game and engineering a
+                  mechanic to fix it — not just coding a feature, but justifying
+                  the design decision.
+                </span>
+              </li>
+              <li className='flex items-start gap-3'>
+                <span className='mt-1 h-2 w-2 rounded-full bg-blue-500 shrink-0'></span>
+                <span>
+                  <strong className='text-slate-800 dark:text-slate-200'>
+                    Edge case handling:
+                  </strong>{" "}
+                  Guarding against runtime crashes (e.g. paddle size reaching
+                  zero) before they happen rather than after.
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* GitHub Link */}
+          <div className='pt-6 border-t border-slate-200 dark:border-slate-700 flex gap-4'>
             <a
               href='#'
               className='inline-flex items-center px-6 py-3 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors'
