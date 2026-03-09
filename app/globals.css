@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+     --background: 220 20% 10%;
+    --foreground: 220 10% 90%;
+    --card: 220 20% 12%;
+    --card-foreground: 220 10% 90%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 10% 90%;
+    --primary: 220 10% 60%;
+    --primary-foreground: 220 20% 10%;
+    --secondary: 220 10% 20%;
+    --secondary-foreground: 220 10% 90%;
+    --muted: 220 10% 20%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 220 10% 20%;
+    --accent-foreground: 220 10% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 220 10% 90%;
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 220 10% 60%;
+    /* --background: 0 0% 100%;
+    --foreground: 220 20% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+    --primary: 220 15% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 10% 96%;
+    --secondary-foreground: 220 20% 20%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 220 10% 96%;
+    --accent-foreground: 220 20% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 15% 40%;
+    --radius: 0.5rem; */
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 220 10% 90%;
+    --card: 220 20% 12%;
+    --card-foreground: 220 10% 90%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 10% 90%;
+    --primary: 220 10% 60%;
+    --primary-foreground: 220 20% 10%;
+    --secondary: 220 10% 20%;
+    --secondary-foreground: 220 10% 90%;
+    --muted: 220 10% 20%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 220 10% 20%;
+    --accent-foreground: 220 10% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 220 10% 90%;
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 220 10% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
