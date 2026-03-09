@@ -30,19 +30,10 @@ export default function PongGame() {
         {/* Video Section */}
         <div className='mb-12'>
           <div className='relative w-full aspect-video bg-slate-200 dark:bg-slate-800 rounded overflow-hidden shadow-2xl'>
-            {/* Replace with actual video or embedded content */}
-            <video
-              className='w-full h-full object-cover'
-              controls
-              poster='/placeholder.svg' // Optional: Add a poster image
-            >
-              <source src='/path-to-your-video.mp4' type='video/mp4' />
+            <video className='w-full h-full' controls poster='/pong.png'>
+              <source src='/pong.mp4' type='video/mp4' />
               Your browser does not support the video tag.
             </video>
-            {/* Temporary placeholder - remove when you add actual video */}
-            <div className='absolute inset-0 flex items-center justify-center bg-gradient-to-br'>
-              <p className='text-white text-lg font-medium'>Project Video</p>
-            </div>
           </div>
         </div>
 
@@ -77,34 +68,6 @@ export default function PongGame() {
                 </Badge>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Highlight Cards */}
-        <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12'>
-          <div className='bg-white dark:bg-slate-800 rounded-lg p-5 shadow border border-slate-200 dark:border-slate-700 text-center'>
-            <p className='text-3xl font-bold text-blue-600 dark:text-blue-400'>
-              10
-            </p>
-            <p className='text-sm text-slate-500 dark:text-slate-400 mt-1'>
-              Points to Win
-            </p>
-          </div>
-          <div className='bg-white dark:bg-slate-800 rounded-lg p-5 shadow border border-slate-200 dark:border-slate-700 text-center'>
-            <p className='text-3xl font-bold text-blue-600 dark:text-blue-400'>
-              2
-            </p>
-            <p className='text-sm text-slate-500 dark:text-slate-400 mt-1'>
-              Win Conditions
-            </p>
-          </div>
-          <div className='bg-white dark:bg-slate-800 rounded-lg p-5 shadow border border-slate-200 dark:border-slate-700 text-center'>
-            <p className='text-3xl font-bold text-blue-600 dark:text-blue-400'>
-              0
-            </p>
-            <p className='text-sm text-slate-500 dark:text-slate-400 mt-1'>
-              External Libraries
-            </p>
           </div>
         </div>
 
@@ -280,7 +243,7 @@ export default function PongGame() {
           {/* GitHub Link */}
           <div className='pt-6 border-t border-slate-200 dark:border-slate-700 flex gap-4'>
             <a
-              href='#'
+              href='https://github.com/muhammadmuaz11/intro-to-computing-assignment'
               className='inline-flex items-center px-6 py-3 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors'
             >
               View on GitHub
