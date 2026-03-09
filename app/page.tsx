@@ -83,10 +83,10 @@ export default function Portfolio() {
                   Muaz
                 </span>
               </h1>
-              <p className='text-xl sm:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed'>
+              <p className='text-xl sm:text-2xl text-slate-700 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed'>
                 Computer Science Student @ BNU London
               </p>
-              <p className='text-lg text-slate-500 dark:text-slate-500 max-w-2xl mx-auto'>
+              <p className='text-lg text-slate-950 dark:text-slate-500 max-w-2xl mx-auto'>
                 I am a passionate Computer Science student with a strong
                 interest in frontend development. I am eager to apply my skills
                 and creativity to build engaging web applications. Currently
@@ -145,7 +145,7 @@ export default function Portfolio() {
             <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4'>
               My Projects
             </h2>
-            <p className='text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto'>
+            <p className='text-lg text-slate-700 dark:text-slate-400 max-w-2xl mx-auto'>
               These projects show my skills and passion in CS!
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function Portfolio() {
                 </h3>
 
                 {/* Project Description */}
-                <p className='text-slate-600 dark:text-slate-400 mb-4 leading-relaxed line-clamp-2'>
+                <p className='text-slate-950 dark:text-slate-400 mb-4 leading-relaxed line-clamp-2'>
                   I developed a Pong game using Python and Turtle module,
                   featuring smooth gameplay, responsive controls, and engaging
                   graphics. The game includes single-player mode against an AI
@@ -194,12 +194,6 @@ export default function Portfolio() {
                 <div className='flex flex-wrap gap-2'>
                   <Badge className='bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors'>
                     Python
-                  </Badge>
-                  <Badge className='bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors'>
-                    React
-                  </Badge>
-                  <Badge className='bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors'>
-                    Next.js
                   </Badge>
                 </div>
               </CardContent>
@@ -223,7 +217,7 @@ export default function Portfolio() {
                 <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6'>
                   About Me
                 </h2>
-                <div className='space-y-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed'>
+                <div className='space-y-4 text-lg text-slate-950 dark:text-slate-400 leading-relaxed'>
                   <p>
                     I'm a Computer Science student passionate about frontend
                     development, creating clean, functional, and visually
