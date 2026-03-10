@@ -285,81 +285,6 @@ export default function Portfolio() {
             </p>
           </div>
 
-          {/* <div className='grid md:grid-cols-2 gap-12'> */}
-          {/* <Card className='p-8 border-0 shadow-lg bg-white dark:bg-slate-800'>
-              <form action={formAction} className='space-y-6'>
-                <div className='grid sm:grid-cols-2 gap-4'>
-                  <div>
-                    <label className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'>
-                      Name
-                    </label>
-                    <Input
-                      name='name'
-                      placeholder='Your name'
-                      className='border-slate-300 dark:border-slate-600 focus:border-slate-500 dark:focus:border-slate-400'
-                      aria-describedby='name-error'
-                    />
-                    {state.errors?.name && (
-                      <p id='name-error' className='text-sm text-red-500 mt-1'>
-                        {state.errors.name[0]}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <label className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'>
-                      Email
-                    </label>
-                    <Input
-                      type='email'
-                      name='email'
-                      placeholder='your@email.com'
-                      className='border-slate-300 dark:border-slate-600 focus:border-slate-500 dark:focus:border-slate-400'
-                      aria-describedby='email-error'
-                    />
-                    {state.errors?.email && (
-                      <p id='email-error' className='text-sm text-red-500 mt-1'>
-                        {state.errors.email[0]}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <label className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'>
-                    Message
-                  </label>
-                  <Textarea
-                    name='message'
-                    placeholder='Tell me about your project...'
-                    rows={5}
-                    className='border-slate-300 dark:border-slate-600 focus:border-slate-500 dark:focus:border-slate-400'
-                    aria-describedby='message-error'
-                  />
-                  {state.errors?._form && (
-                    <div className='p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/30 rounded-md text-red-600 dark:text-red-400 text-sm'>
-                      {state.errors._form[0]}
-                    </div>
-                  )}
-                  {state.success && (
-                    <div className='p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-900/30 rounded-md text-green-600 dark:text-green-400 text-sm'>
-                      {state.message}
-                    </div>
-                  )}
-                </div>
-                <Button
-                  type='submit'
-                  className='w-full bg-slate-800 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600 text-white py-3 rounded-lg transition-all duration-300'
-                >
-                  Send Message
-                  <Send className='ml-2 h-4 w-4' />
-                </Button>
-              </form>
-            </Card> */}
-
-          {/* <div className='grid grid-cols-3'>
-            <div> */}
-          {/* <h3 className='text-2xl font-bold text-slate-900 dark:text-white mb-6'>
-                  Connect With Me
-                </h3> */}
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             <Link
               href='https://github.com/muhammadmuaz11'
@@ -422,9 +347,6 @@ export default function Portfolio() {
               </div>
             </Link>
           </div>
-          {/* </div>
-          </div> */}
-          {/* </div> */}
         </div>
       </section>
 
