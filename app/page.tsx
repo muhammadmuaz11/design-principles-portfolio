@@ -124,6 +124,67 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section id='about' className='py-20 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='grid lg:grid-cols-2 gap-12 items-center'>
+            <div className='space-y-8'>
+              <div>
+                <div className='inline-flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium mb-4'>
+                  <Palette className='h-4 w-4' />
+                  <span>About Me</span>
+                </div>
+                <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6'>
+                  About Me
+                </h2>
+                <div className='space-y-4 text-lg text-slate-950 dark:text-slate-400 leading-relaxed'>
+                  <p>
+                    I'm a Computer Science student passionate about frontend
+                    development, creating clean, functional, and visually
+                    engaging web experiences.
+                  </p>
+                  <p>
+                    Outside coding, I enjoy exploring cultural and historical
+                    books and experimenting with new design ideas while
+                    continuously improving my skills.
+                  </p>
+                </div>
+              </div>
+              {/* skills * technologies */}
+              {/* <div>
+                <h3 className='text-xl font-semibold text-slate-900 dark:text-white mb-4'>
+                  Skills & Technologies
+                </h3>
+                <div className='grid grid-cols-2 sm:grid-cols-3 gap-3'>
+                  {skills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className='bg-white dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-center hover:border-blue-300 dark:hover:border-blue-600 transition-colors duration-300 hover:shadow-md'
+                    >
+                      <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
+                        {skill}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div> */}
+            </div>
+            <div className='relative'>
+              <div className='relative w-80 h-80 mx-auto'>
+                <div className='absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-20 animate-pulse'></div>
+                <Image
+                  src='https://avatars.githubusercontent.com/u/265863410?v=4'
+                  alt='Muhammad Muaz'
+                  width={320}
+                  height={320}
+                  className='relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-700 shadow-2xl'
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section
         id='projects'
@@ -200,67 +261,6 @@ export default function Portfolio() {
             </Card>
 
             {/* You can add more project cards by copying the Card component above */}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id='about' className='py-20 px-4 sm:px-6 lg:px-8'>
-        <div className='max-w-6xl mx-auto'>
-          <div className='grid lg:grid-cols-2 gap-12 items-center'>
-            <div className='space-y-8'>
-              <div>
-                <div className='inline-flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium mb-4'>
-                  <Palette className='h-4 w-4' />
-                  <span>About Me</span>
-                </div>
-                <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6'>
-                  About Me
-                </h2>
-                <div className='space-y-4 text-lg text-slate-950 dark:text-slate-400 leading-relaxed'>
-                  <p>
-                    I'm a Computer Science student passionate about frontend
-                    development, creating clean, functional, and visually
-                    engaging web experiences.
-                  </p>
-                  <p>
-                    Outside coding, I enjoy exploring cultural and historical
-                    books and experimenting with new design ideas while
-                    continuously improving my skills.
-                  </p>
-                </div>
-              </div>
-              {/* skills * technologies */}
-              {/* <div>
-                <h3 className='text-xl font-semibold text-slate-900 dark:text-white mb-4'>
-                  Skills & Technologies
-                </h3>
-                <div className='grid grid-cols-2 sm:grid-cols-3 gap-3'>
-                  {skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className='bg-white dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-center hover:border-blue-300 dark:hover:border-blue-600 transition-colors duration-300 hover:shadow-md'
-                    >
-                      <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
-                        {skill}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
-            </div>
-            <div className='relative'>
-              <div className='relative w-80 h-80 mx-auto'>
-                <div className='absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-20 animate-pulse'></div>
-                <Image
-                  src='https://avatars.githubusercontent.com/u/265863410?v=4'
-                  alt='Muhammad Muaz'
-                  width={320}
-                  height={320}
-                  className='relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-700 shadow-2xl'
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
