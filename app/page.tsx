@@ -14,7 +14,103 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+import { services } from "@/constants/services";
+import type { Service } from "@/constants/services";
+
 export default function Portfolio() {
+  function ServiceCard({
+    slug,
+    title,
+    description,
+    tags,
+    gradient,
+    badge,
+  }: Pick<
+    Service,
+    "slug" | "title" | "description" | "tags" | "gradient" | "badge"
+  >) {
+    return (
+      <Link href={`/services/${slug}`} className='block group'>
+        <Card className='overflow-hidden border-0 shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white dark:bg-slate-800 flex flex-col h-full'>
+          {/* Thumbnail */}
+          <div
+            className={`relative overflow-hidden h-40 bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0`}
+          >
+            {/* Animated grid pattern overlay */}
+            <div className='absolute inset-0 opacity-10 bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[size:20px_20px]' />
+
+            {/* Icon area */}
+            <Code2 className='h-14 w-14 text-white/70 transition-transform duration-500 group-hover:scale-125 group-hover:text-white/90' />
+
+            {/* Badge */}
+            {badge && (
+              <span className='absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 text-slate-800 dark:text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm'>
+                {badge}
+              </span>
+            )}
+
+            {/* Gradient overlay on hover */}
+            <div className='absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+          </div>
+
+          {/* Card Body */}
+          <CardContent className='p-5 flex flex-col flex-1'>
+            {/* Star rating */}
+            <div className='flex items-center gap-1 mb-3'>
+              {[...Array(5)].map((_, i) => (
+                <svg
+                  key={i}
+                  className='h-3.5 w-3.5 text-amber-400 fill-amber-400'
+                  viewBox='0 0 20 20'
+                >
+                  <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
+                </svg>
+              ))}
+              <span className='text-xs text-slate-500 dark:text-slate-400 ml-1'>
+                5.0
+              </span>
+            </div>
+
+            {/* Title */}
+            <h3 className='text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors'>
+              {title}
+            </h3>
+
+            {/* Description */}
+            <p className='text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 flex-1'>
+              {description}
+            </p>
+
+            {/* Tags */}
+            <div className='flex flex-wrap gap-1.5 mb-4'>
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className='text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-full'
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Divider + CTA */}
+            <div className='pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between'>
+              <span className='text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wide font-medium'>
+                Starting from
+              </span>
+              <a
+                href='#contact'
+                className='text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline underline-offset-2'
+              >
+                Hire Me →
+              </a>
+            </div>
+          </CardContent>
+        </Card>
+      </Link>
+    );
+  }
+
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 transition-colors duration-500'>
       {/* Navigation */}
@@ -73,25 +169,24 @@ export default function Portfolio() {
             <div className='space-y-4'>
               <div className='inline-flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium'>
                 <Zap className='h-4 w-4' />
-                <span>Available for new opportunities</span>
+                <span>Open to internships & junior roles</span>
               </div>
               <h1 className='text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight'>
-                <span className=' text-slate-900 dark:text-white'>
+                <span className='text-slate-900 dark:text-white'>
                   Muhammad{" "}
                 </span>
-                <span className=' text-slate-600 dark:text-slate-400'>
-                  Muaz
-                </span>
+                <span className='text-slate-600 dark:text-slate-400'>Muaz</span>
               </h1>
               <p className='text-xl sm:text-2xl text-slate-700 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed'>
-                Computer Science Student @ BNU London
+                Frontend Developer & CS Student
               </p>
-              <p className='text-lg text-slate-950 dark:text-slate-500 max-w-2xl mx-auto'>
-                I am a passionate Computer Science student with a strong
-                interest in frontend development. I am eager to apply my skills
-                and creativity to build engaging web applications. Currently
-                seeking internship opportunities to gain real-world
-                experience{" "}
+              <p className='text-lg text-slate-600 dark:text-slate-500 max-w-2xl mx-auto leading-relaxed'>
+                I build clean, responsive web interfaces using{" "}
+                <span className='font-medium text-slate-800 dark:text-slate-300'>
+                  React, Next.js, and Tailwind CSS
+                </span>
+                . Focused on writing maintainable code and shipping experiences
+                that feel great to use.
               </p>
             </div>
             <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
@@ -104,8 +199,8 @@ export default function Portfolio() {
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                View Projects
-                <ExternalLink className=' h-4 w-4' />
+                See My Work
+                <ExternalLink className='h-4 w-4' />
               </Button>
               <Button
                 variant='outline'
@@ -117,7 +212,7 @@ export default function Portfolio() {
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                Get In Touch
+                Contact Me
               </Button>
             </div>
           </div>
@@ -137,37 +232,30 @@ export default function Portfolio() {
                 <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6'>
                   About Me
                 </h2>
-                <div className='space-y-4 text-lg text-slate-950 dark:text-slate-400 leading-relaxed'>
+                <div className='space-y-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed'>
                   <p>
-                    I'm a Computer Science student passionate about frontend
-                    development, creating clean, functional, and visually
-                    engaging web experiences.
+                    I&apos;m a Frontend Developer and Computer Science student
+                    at BNU London. I care about building UIs that are not just
+                    functional, but genuinely pleasant to interact with — clean
+                    layouts, responsive design, and thoughtful details.
                   </p>
                   <p>
-                    Outside coding, I enjoy exploring cultural and historical
-                    books and experimenting with new design ideas while
-                    continuously improving my skills.
+                    My stack centers around{" "}
+                    <span className='font-medium text-slate-800 dark:text-slate-300'>
+                      React, Next.js, TypeScript, and Tailwind CSS
+                    </span>
+                    . I hold myself to a high standard and am always pushing to
+                    improve — whether that means refactoring messy code,
+                    exploring a new tool, or studying how great products are
+                    built.
+                  </p>
+                  <p>
+                    I&apos;m actively looking for an internship where I can
+                    contribute real work, learn from experienced engineers, and
+                    grow fast.
                   </p>
                 </div>
               </div>
-              {/* skills * technologies */}
-              {/* <div>
-                <h3 className='text-xl font-semibold text-slate-900 dark:text-white mb-4'>
-                  Skills & Technologies
-                </h3>
-                <div className='grid grid-cols-2 sm:grid-cols-3 gap-3'>
-                  {skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className='bg-white dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-center hover:border-blue-300 dark:hover:border-blue-600 transition-colors duration-300 hover:shadow-md'
-                    >
-                      <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
-                        {skill}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
             </div>
             <div className='relative'>
               <div className='relative w-80 h-80 mx-auto'>
@@ -196,18 +284,11 @@ export default function Portfolio() {
               <Code2 className='h-4 w-4' />
               <span>Featured Work</span>
             </div>
-            {/* <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4'>
-              Selected Projects
+            <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4'>
+              Projects
             </h2>
             <p className='text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto'>
-              My recent work, featuring modern web applications built with
-              latest technologies
-            </p> */}
-            <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4'>
-              My Projects
-            </h2>
-            <p className='text-lg text-slate-700 dark:text-slate-400 max-w-2xl mx-auto'>
-              These projects show my skills and passion in CS!
+              Things I&apos;ve built — from game mechanics to web interfaces.
             </p>
           </div>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -216,8 +297,8 @@ export default function Portfolio() {
               {/* Project Image */}
               <div className='relative overflow-hidden h-48 bg-gradient-to-br from-blue-500 to-purple-600'>
                 <Image
-                  src='/placeholder.svg' // Replace with your project image
-                  alt='Project Name'
+                  src='/placeholder.svg'
+                  alt='Pong Game'
                   width={400}
                   height={250}
                   className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
@@ -242,13 +323,11 @@ export default function Portfolio() {
                 </h3>
 
                 {/* Project Description */}
-                <p className='text-slate-950 dark:text-slate-400 mb-4 leading-relaxed line-clamp-2'>
-                  I developed a Pong game using Python and Turtle module,
-                  featuring smooth gameplay, responsive controls, and engaging
-                  graphics. The game includes single-player mode against an AI
-                  opponent and local multiplayer mode for competitive play. It
-                  demonstrates my ability to create interactive applications and
-                  implement game mechanics effectively.
+                <p className='text-slate-600 dark:text-slate-400 mb-4 leading-relaxed line-clamp-2'>
+                  A redesigned two-player Pong built in Python with a custom
+                  dynamic difficulty mechanic — each missed goal shrinks the
+                  losing player&apos;s paddle, guaranteeing a decisive outcome
+                  every time.
                 </p>
 
                 {/* Technology Badges */}
@@ -265,6 +344,30 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section id='services' className='py-20 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='text-center mb-16'>
+            <div className='inline-flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-full text-sm font-medium mb-4'>
+              <Zap className='h-4 w-4' />
+              <span>What I Do</span>
+            </div>
+            <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4'>
+              Services I Offer
+            </h2>
+            <p className='text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto'>
+              From building full web apps to fixing tricky frontend bugs — here
+              is what I can help you with.
+            </p>
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {services.map((service) => (
+              <ServiceCard key={service.title} {...service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section
         id='contact'
@@ -277,11 +380,12 @@ export default function Portfolio() {
               <span>Get In Touch</span>
             </div>
             <h2 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4'>
-              Let's Work Together
+              Let&apos;s Connect
             </h2>
             <p className='text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto'>
-              Have a project in mind or want to discuss opportunities? I'd love
-              to hear from you.
+              I&apos;m currently open to internships, junior frontend roles, and
+              freelance collaborations. If you have an opportunity or just want
+              to talk code — reach out.
             </p>
           </div>
 
@@ -301,7 +405,7 @@ export default function Portfolio() {
                     GitHub
                   </h3>
                   <p className='text-slate-600 dark:text-slate-400'>
-                    View my repositories
+                    View my code
                   </p>
                 </div>
               </div>
@@ -322,7 +426,7 @@ export default function Portfolio() {
                     LinkedIn
                   </h3>
                   <p className='text-slate-600 dark:text-slate-400'>
-                    Professional network
+                    Connect with me
                   </p>
                 </div>
               </div>
