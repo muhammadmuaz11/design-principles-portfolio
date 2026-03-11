@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { getServiceBySlug, services } from "@/constants/services";
+import Contact from "@/components/contact";
+import Image from "next/image";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -35,8 +37,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800'>
-      {/* Back button */}
-      <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8'>
+      {/* Back button — was pt-8, needs pt-24 to clear the fixed header */}
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24'>
         <Link
           href='/#services'
           className='inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors'
@@ -47,47 +49,71 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </div>
 
       {/* ── HERO BANNER ── */}
-      <div
-        className={`relative overflow-hidden bg-gradient-to-br ${service.gradient} mt-6`}
-      >
-        {/* dot-grid texture */}
-        <div className='absolute inset-0 opacity-10 bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[size:24px_24px]' />
-        <div className='relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28'>
-          <div className='max-w-2xl'>
-            {service.badge && (
-              <span className='inline-block mb-4 bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm'>
-                {service.badge}
-              </span>
-            )}
-            <h1 className='text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight'>
-              {service.title}
-            </h1>
-            <p className='text-lg text-white/80 mb-8 leading-relaxed'>
-              {service.tagline}
-            </p>
-            <div className='flex flex-wrap gap-2 mb-10'>
-              {service.tags.map((tag) => (
+      <div className='relative overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 mt-6'>
+        {/* Gradient accent bar at the top — service color used as a subtle identity strip */}
+        <div
+          className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`}
+        />
+
+        {/* Soft background tint — very subtle, keeps text readable */}
+        <div className='absolute inset-0 bg-gradient-to-br from-indigo-50/40 via-white to-violet-50/20 dark:from-indigo-950/20 dark:via-slate-900 dark:to-violet-950/10 pointer-events-none' />
+
+        <div className='relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24'>
+          <div className='grid lg:grid-cols-2 gap-12 items-center'>
+            {/* Left — text */}
+            <div>
+              {service.badge && (
                 <span
-                  key={tag}
-                  className='bg-white/20 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm'
+                  className={`inline-block mb-4 bg-gradient-to-r ${service.gradient} text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm`}
                 >
-                  {tag}
+                  {service.badge}
                 </span>
-              ))}
+              )}
+              <h1 className='text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-4 leading-tight'>
+                {service.title}
+              </h1>
+              <p className='text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed'>
+                {service.tagline}
+              </p>
+              <div className='flex flex-wrap gap-2 mb-10'>
+                {service.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className='bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900 text-sm px-3 py-1 rounded-full font-medium'
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a
+                href='#contact'
+                className='inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30'
+              >
+                Hire Me
+                <ArrowRight className='h-4 w-4' />
+              </a>
             </div>
-            <a
-              href='#cta'
-              className='inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-6 py-3 rounded-lg hover:bg-slate-100 transition-colors shadow-lg'
-            >
-              Hire Me
-              <ArrowRight className='h-4 w-4' />
-            </a>
+
+            {/* Right — poster image */}
+            <div className='hidden lg:flex items-center justify-center'>
+              <div
+                className={`relative w-full aspect-video rounded-xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-br ${service.gradient}`}
+              >
+                <Image
+                  src='/placeholder.svg'
+                  alt={service.title}
+                  fill
+                  className='object-cover opacity-80'
+                />
+                <div className='absolute inset-0 bg-black/5' />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* ── MAIN CONTENT ── */}
-      <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16'>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16'>
         {/* Overview + Who it's for */}
         <div className='grid lg:grid-cols-2 gap-8'>
           <Card className='bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm'>
@@ -195,7 +221,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
 
         {/* ── CTA BANNER ── */}
-        <div
+        {/* <div
           id='cta'
           className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.gradient} p-10 sm:p-14 text-center shadow-xl`}
         >
@@ -236,7 +262,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
+        <Contact />
 
         {/* Other Services */}
         <div>
