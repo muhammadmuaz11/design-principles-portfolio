@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section
       id='contact'
-      className='py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-indigo-50/40 to-white dark:from-indigo-950/20 dark:to-slate-950'
+      className='py-24 px-4 sm:px-6 lg:px-8 bg-slate-200 dark:bg-slate-800 border-t border-slate-300 dark:border-slate-700'
     >
       <div className='max-w-4xl mx-auto'>
         <div className='text-center mb-10'>

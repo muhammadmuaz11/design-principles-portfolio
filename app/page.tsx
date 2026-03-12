@@ -93,11 +93,11 @@ export default function Portfolio() {
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-white via-slate-50/50 to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 transition-colors duration-500'>
+    <div className='min-h-screen bg-slate-100 dark:bg-slate-950 transition-colors duration-500'>
       {/* ── HERO ── */}
       <section
         id='home'
-        className='relative min-h-screen pt-32 flex flex-col justify-center pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden'
+        className='relative min-h-screen pt-32 flex flex-col justify-center pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-indigo-100/60 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800'
       >
         {/* Decorative blobs — visual balance via background depth */}
         <div
@@ -175,7 +175,7 @@ export default function Portfolio() {
       {/* ── ABOUT ── */}
       <section
         id='about'
-        className='py-24 px-4 sm:px-6 lg:px-8 bg-white/60 dark:bg-slate-900/30'
+        className='py-24 px-4 sm:px-6 lg:px-8 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700'
       >
         <div className='max-w-6xl mx-auto'>
           <div className='grid lg:grid-cols-2 gap-16 items-center'>
@@ -233,7 +233,7 @@ export default function Portfolio() {
       {/* ── PROJECTS ── */}
       <section
         id='projects'
-        className='py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50/80 to-white dark:from-slate-900/60 dark:to-slate-950'
+        className='py-24 px-4 sm:px-6 lg:px-8 bg-slate-200 dark:bg-slate-800 border-t border-slate-300 dark:border-slate-700'
       >
         <div className='max-w-6xl mx-auto'>
           <div className='text-center mb-16'>
@@ -292,7 +292,10 @@ export default function Portfolio() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id='services' className='py-24 px-4 sm:px-6 lg:px-8'>
+      <section
+        id='services'
+        className='py-24 px-4 sm:px-6 lg:px-8 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700'
+      >
         <div className='max-w-6xl mx-auto'>
           <div className='text-center mb-16'>
             <div className='inline-flex items-center space-x-2 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900 px-4 py-2 rounded-full text-sm font-medium mb-5'>
