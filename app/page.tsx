@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/constants/services";
 import type { Service } from "@/constants/services";
-import Contact from "@/components/contact";
 
 export default function Portfolio() {
   function ServiceCard({
@@ -317,9 +316,6 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
-      {/* ── CONTACT ── */}
-      <Contact />
     </div>
   );
 }

@@ -252,49 +252,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* ── CTA BANNER ── */}
-        {/* <div
-          id='cta'
-          className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.gradient} p-10 sm:p-14 text-center shadow-xl`}
-        >
-          <div className='absolute inset-0 opacity-10 bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[size:24px_24px]' />
-          <div className='relative'>
-            <h2 className='text-3xl sm:text-4xl font-bold text-white mb-3'>
-              Interested? Let&apos;s talk.
-            </h2>
-            <p className='text-white/80 text-lg mb-8 max-w-lg mx-auto'>
-              Send me a message and let&apos;s figure out how I can help with
-              your project.
-            </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-              <Link
-                href='mailto:muhammadmuaz0165@gmail.com'
-                className='inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-6 py-3 rounded-lg hover:bg-slate-100 transition-colors shadow-lg'
-              >
-                <Mail className='h-4 w-4' />
-                Email Me
-              </Link>
-              <Link
-                href='https://www.linkedin.com/in/muhammad-muaz-57b02b344/'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 bg-white/20 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/30 transition-colors backdrop-blur-sm'
-              >
-                <Linkedin className='h-4 w-4' />
-                LinkedIn
-              </Link>
-              <Link
-                href='https://github.com/muhammadmuaz11'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 bg-white/20 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/30 transition-colors backdrop-blur-sm'
-              >
-                <Github className='h-4 w-4' />
-                GitHub
-              </Link>
-            </div>
-          </div>
-        </div> */}
         <Contact />
 
         {/* Other Services */}
