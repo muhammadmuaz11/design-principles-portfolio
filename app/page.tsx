@@ -6,18 +6,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/constants/services";
 import type { Service } from "@/constants/services";
+import Contact from "@/components/contact";
 
 export default function Portfolio() {
   function ServiceCard({
     slug,
     title,
     description,
+    image,
     tags,
     gradient,
     badge,
   }: Pick<
     Service,
-    "slug" | "title" | "description" | "tags" | "gradient" | "badge"
+    "slug" | "title" | "description" | "image" | "tags" | "gradient" | "badge"
   >) {
     return (
       <Link href={`/services/${slug}`} className='block group'>
@@ -26,14 +28,21 @@ export default function Portfolio() {
           <div
             className={`relative overflow-hidden h-40 bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0`}
           >
-            <div className='absolute inset-0 opacity-10 bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[size:20px_20px]' />
-            <Code2 className='h-14 w-14 text-white/70 transition-transform duration-500 group-hover:scale-125 group-hover:text-white/90' />
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className='object-cover object-[center_18%] opacity-90 transition-transform duration-500 group-hover:scale-110'
+            />
+            <div className='absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent' />
             {badge && (
-              <span className='absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 text-indigo-700 dark:text-indigo-300 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm'>
+              <span className='absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 text-indigo-700 dark:text-indigo-300 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm'>
                 {badge}
               </span>
             )}
-            <div className='absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+            <div className='absolute bottom-3 right-3 p-2 rounded-full bg-white/90 dark:bg-slate-900/90 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0'>
+              <Code2 className='h-4 w-4 text-indigo-600 dark:text-indigo-400' />
+            </div>
           </div>
 
           {/* Card Body */}
@@ -316,6 +325,8 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      <Contact />
     </div>
   );
 }

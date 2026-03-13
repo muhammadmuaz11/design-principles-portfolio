@@ -9,6 +9,7 @@ export type Service = {
   title: string;
   tagline: string;
   description: string;
+  image: string;
   tags: string[];
   gradient: string;
   badge: string | null;
@@ -26,6 +27,7 @@ export const services: Service[] = [
     tagline: "Pixel-perfect sites that work beautifully on every screen.",
     description:
       "Pixel-perfect, mobile-first websites built from scratch. Fast, accessible, and optimised for all screen sizes.",
+    image: "/gig1.JPG",
     tags: ["Next.js", "Tailwind CSS", "Responsive Design"],
     gradient: "from-blue-500 to-indigo-600",
     badge: "Popular",
@@ -90,6 +92,7 @@ export const services: Service[] = [
     tagline: "Landing pages that convert visitors into leads.",
     description:
       "High-converting landing pages with clean layouts, smooth animations, and a focus on user experience.",
+    image: "/gig2.JPG",
     tags: ["React", "Tailwind CSS", "UI Development"],
     gradient: "from-purple-500 to-pink-600",
     badge: null,
@@ -154,6 +157,7 @@ export const services: Service[] = [
     tagline: "Full frontend builds — from routing to deployment.",
     description:
       "Full frontend builds using React and Next.js — routing, state management, API integration, and deployment.",
+    image: "/gig3.JPG",
     tags: ["React", "Next.js", "TypeScript"],
     gradient: "from-cyan-500 to-blue-600",
     badge: "Popular",
