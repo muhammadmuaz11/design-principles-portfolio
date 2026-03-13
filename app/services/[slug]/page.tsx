@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { getServiceBySlug, services } from "@/constants/services";
-import Contact from "@/components/Contact";
+import Contact from "../../../components/Contact";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
