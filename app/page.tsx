@@ -252,7 +252,7 @@ export default function Portfolio() {
             <Card className='group overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-500 hover:-translate-y-2 bg-white dark:bg-slate-800'>
               <div className='relative overflow-hidden h-48 bg-gradient-to-br from-indigo-500 to-violet-600'>
                 <Image
-                  src='/placeholder.svg'
+                  src='/pong_game_poster.JPG'
                   alt='Pong Game'
                   width={400}
                   height={250}

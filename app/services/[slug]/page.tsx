@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  ArrowLeft,
   ArrowRight,
   CheckCircle2,
   Code2,
@@ -13,7 +12,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { getServiceBySlug, services } from "@/constants/services";
-import Contact from "@/components/contact";
+import Contact from "@/components/Contact";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));

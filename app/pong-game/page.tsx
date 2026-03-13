@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export default function PongGame() {
   const technologies = [
@@ -13,27 +14,18 @@ export default function PongGame() {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 transition-colors duration-500'>
-      {/* Back Button */}
-      <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8'>
-        <Link
-          href='/#projects'
-          className='inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-8'
-        >
-          <ArrowLeft className='h-4 w-4' />
-          Back to Portfolio
-        </Link>
-      </div>
-
+    <div className='min-h-screen bg-gradient-to-br from-slate-50 mt-8 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 transition-colors duration-500'>
       {/* Main Content */}
       <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
         {/* Video Section */}
         <div className='mb-12'>
           <div className='relative w-full aspect-video bg-slate-200 dark:bg-slate-800 rounded overflow-hidden shadow-2xl'>
-            <video className='w-full h-full' controls poster='/pong.png'>
-              <source src='/pong.mp4' type='video/mp4' />
-              Your browser does not support the video tag.
-            </video>
+            <Image
+              src='/pong_game_poster.JPG'
+              alt='Pong Game Demo'
+              fill
+              className='object-cover'
+            />
           </div>
         </div>
 
@@ -244,7 +236,7 @@ export default function PongGame() {
           <div className='pt-6 border-t border-slate-200 dark:border-slate-700 flex gap-4'>
             <a
               href='https://github.com/muhammadmuaz11/intro-to-computing-assignment'
-              className='inline-flex items-center px-6 py-3 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors'
+              className='inline-flex items-center px-6 py-3 bg-indigo-600 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors'
             >
               View on GitHub
             </a>
