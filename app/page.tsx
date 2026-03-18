@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Code2, Palette, Zap } from "lucide-react";
@@ -9,6 +10,7 @@ import type { Service } from "@/constants/services";
 import Contact from "@/components/contact";
 
 export default function Portfolio() {
+  const [isElectionPosterOpen, setIsElectionPosterOpen] = useState(false);
   function ServiceCard({
     slug,
     title,
@@ -295,6 +297,39 @@ export default function Portfolio() {
                 </div>
               </CardContent>
             </Card>
+
+            <Card
+              className='group overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-500 hover:-translate-y-2 bg-white dark:bg-slate-800 cursor-pointer'
+              onClick={() => setIsElectionPosterOpen(true)}
+              role='button'
+              aria-label='Preview BNU election poster'
+            >
+              <div className='relative overflow-hidden h-48 bg-gradient-to-br from-yellow-400 to-indigo-700'>
+                <Image
+                  src='/election_poster.png'
+                  alt='BNU Student President Election Poster'
+                  width={400}
+                  height={250}
+                  className='w-full h-full object transition-transform duration-500 group-hover:scale-110'
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+              </div>
+              <CardContent className='p-6'>
+                <h3 className='text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors'>
+                  BNU Election Campaign Poster
+                </h3>
+                <p className='text-slate-500 dark:text-slate-400 mb-4 leading-relaxed text-sm line-clamp-2'>
+                  Promotional poster design for the BNU Student President
+                  Election 2026, focusing on clear hierarchy, bold typography,
+                  and strong visual contrast to highlight key campaign details.
+                </p>
+                <div className='flex flex-wrap gap-2'>
+                  <span className='text-xs bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full font-medium'>
+                    Canva
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -327,6 +362,33 @@ export default function Portfolio() {
       </section>
 
       <Contact />
+
+      {isElectionPosterOpen && (
+        <div
+          className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm'
+          onClick={() => setIsElectionPosterOpen(false)}
+        >
+          <div
+            className='relative max-w-3xl w-[90%] max-h-[90vh] flex items-center justify-center'
+            onClick={(event) => event.stopPropagation()}
+          >
+            <Image
+              src='/election_poster.png'
+              alt='BNU Student President Election Poster full preview'
+              width={1000}
+              height={1500}
+              className='max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl object-contain'
+            />
+            <button
+              type='button'
+              className='absolute -top-3 right-[150px] rounded-full bg-black/70 text-white px-3 py-1 text-sm hover:bg-black/90'
+              onClick={() => setIsElectionPosterOpen(false)}
+            >
+              X
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
